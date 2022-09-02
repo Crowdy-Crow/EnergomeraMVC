@@ -1,0 +1,21 @@
+﻿@model IEnumerable<CountryViewModel>
+
+<h1>Countries</h1>
+<form asp-controller="Home" asp-action="Index" method="get">
+    <p>
+        Название: <input type="text" name="name" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table>
+    <tr><th>Название</th><th>Столица</th></tr>
+    @foreach (var country in Model)
+    {
+        <tr>
+            <td>@country.Name</td>
+            <td>@country.Capital</td>
+            <td><a class="nav-link text-blue" asp-area="" asp-controller="Home" asp-action="Details" asp-route-NAME=@country.Name>Details</a></td>
+        </tr>
+    }
+
+</table>
